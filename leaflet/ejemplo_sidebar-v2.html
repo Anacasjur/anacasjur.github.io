@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!--
+    CÓDIGO EJEMPLO para sidebar-v2
+    Fuente: https://github.com/Turbo87/sidebar-v2
+    Iconos: https://fontawesome.com/v4.7.0/icons/
+-->
+
+<head>
+
+    <title>Mapa de localización</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <!-- enlace a CSS de Leaflet v. 1.6.0 en la cabecera -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+    
+    <script src="https://raw.github.com/calvinmetcalf/leaflet-ajax/master/dist/leaflet.ajax.min.js"></script>
+
+    <!-- enlace a JavaScript de Leaflet v. 1.6.0 (justo tras CSS) -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+    <!-- CSS para incluir iconos en página -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+      
+    <!-- CSS de sidebar-v2 -->
+    <link rel="stylesheet" href="https://turbo87.github.io/sidebar-v2/css/ol2-sidebar.css"/>
+
+    <!-- JS de sidebar-v2 -->
+    <script src="https://turbo87.github.io/sidebar-v2//js/leaflet-sidebar.js"></script>
+
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body, #map {
+            height: 100%;
+            font: 11pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+        }
+
+        .estilo {
+            font-style: normal;
+            color: rgb(37, 80, 158);
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div id="sidebar" class="sidebar collapsed">
+        <!-- Botones de navegación (sidebar tabs) -->
+        <div class="sidebar-tabs">
+            <!-- botones de arriba -->
+            <ul role="tablist">
+
+                <li><a href="#intro" role="tab"><i class="fa fa-bars"></i></a></li>
+
+                <li><a href="#perfil" role="tab"><i class="fa fa-user-circle-o"></i></a></li>
+
+                <li><a href="#Consejos" role="tab"><i class="fa fa-map-signs"></i></a></li>
+
+                <li><a href="https://www.us.es" role="tab" target="_blank"><i class="fa fa-home"></i></a></li>
+            </ul>
+
+            <!-- botón o botones de abajo -->
+            <ul role="tablist">
+                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- Paneles desplegables desde botones -->
+        <div class="sidebar-content">
+
+            <div class="sidebar-pane" id="intro">
+                <h1 class="sidebar-header">
+                    Ubicación  
+                </h1>
+
+                <p class="estilo">La Universidad de Sevilla (US) es una universidad pública con sede en Sevilla, Andalucía (España). Es una de las dos universidades públicas de Sevilla, junto con la Universidad Pablo de Olavide. Aunque sus centros se encuentran repartidos por toda la ciudad, la sede de su rectorado es el edificio de la Real Fábrica de Tabacos de Sevilla.</p>
+
+                <p class="estilo">Más de ochenta mil personas integran la comunidad universitaria entre alumnos, profesores y profesionales de administración y servicios. Cuenta con un notable patrimonio histórico artístico, en el que destacan siete edificios declarados Bien de Interés Cultural, miles de obras de arte, así como un importante archivo histórico.</p>
+
+                <p class="">Wikipedia
+                    <i class="fa fa-wikipedia-w"></i>
+                </p>
+            </div>
+
+            <div class="sidebar-pane" id="perfil">
+                <h1 class="sidebar-header">Profile<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <p class="estilo">Actualmente, no me encuentro disponible en esta dirección. Para contactarme puedes llamarme por teléfono.</p>
+            </div>
+
+            <div class="sidebar-pane" id="Consejos">
+                <h1 class="sidebar-header">Messages<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <p>Para ser un verdadero estudiante de la Facultad de Geografía y Letras en el Rectorado debes de haber ido a tomar cervecitas al Bar San Fernando, también conocido como "El Sanfé". </p>
+            </div>
+
+            <div class="sidebar-pane" id="settings">
+                <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <p>Incluir aquí el texto necesario...</p>
+                <p class="estilo">Por ejemplo relativo a las propiedades</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- bloque del mapa -->
+    <div id="map" class="sidebar_map"></div>
+
+    <!-- Capa -->
+    <script id="bloque_mapa0" src="mun_sevilla.geojson"></script>
+
+    <script>
+        var map = L.map('map');
+        map.setView([37.38, -5.97], 8);
+
+        
+        // Incluir capa de Comarcas desde GeoJSON
+        var comarcas = L.geoJSON(municipios); // genero capa leaflet
+        comarcas.addTo(map)  
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+	        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	        subdomains: 'abcd',
+	        maxZoom: 19
+            }).addTo(map);
+
+        var marker = L.marker([37.38, -5.97]).addTo(map);
+
+        var sidebar = L.control.sidebar('sidebar').addTo(map);
+
+
+    </script>
+</body>
+</html>
