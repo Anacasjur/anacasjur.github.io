@@ -10,7 +10,7 @@
 <head>
 
     <title>Mapa de localización</title>
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
 
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
-    
+
     <script src="https://raw.github.com/calvinmetcalf/leaflet-ajax/master/dist/leaflet.ajax.min.js"></script>
 
     <!-- enlace a JavaScript de Leaflet v. 1.6.0 (justo tras CSS) -->
@@ -28,7 +28,7 @@
 
     <!-- CSS para incluir iconos en página -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-      
+
     <!-- CSS de sidebar-v2 -->
     <link rel="stylesheet" href="https://turbo87.github.io/sidebar-v2/css/ol2-sidebar.css"/>
 
@@ -83,7 +83,7 @@
 
             <div class="sidebar-pane" id="intro">
                 <h1 class="sidebar-header">
-                    Ubicación  
+                    Ubicación
                 </h1>
 
                 <p class="estilo">La Universidad de Sevilla (US) es una universidad pública con sede en Sevilla, Andalucía (España). Es una de las dos universidades públicas de Sevilla, junto con la Universidad Pablo de Olavide. Aunque sus centros se encuentran repartidos por toda la ciudad, la sede de su rectorado es el edificio de la Real Fábrica de Tabacos de Sevilla.</p>
@@ -117,22 +117,30 @@
     <div id="map" class="sidebar_map"></div>
 
     <!-- Capa -->
-    <script id="bloque_mapa0" src="mun_sevilla.geojson"></script>
+    <!-- cargar javascript (objeto GeoJSON transformado) -->
+    <script src="layers/mun_sevilla.geojson"></script>
 
     <script>
-        var map = L.map('map');
-        map.setView([37.38, -5.97], 8);
+        var map = L.map('map').setView([37.38, -5.97], 8);
 
-        
         // Incluir capa de Comarcas desde GeoJSON
-        var comarcas = L.geoJSON(municipios); // genero capa leaflet
-        comarcas.addTo(map)  
 
         L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
 	        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 	        subdomains: 'abcd',
-	        maxZoom: 19
-            }).addTo(map);
+	        maxZoom: 19}).addTo(map);
+
+
+          var municipios = L.geoJSON( // crear objeto municipios como capa geojson
+            municipios, {             // código a cargar: `municipios`
+            color: 'grey',            // estilo color
+            weight: '1',              // tamaño contorno
+            dashArray: '3',           // contorno discotinuo
+            fillColor: 'blue',        //        color de relleno
+            fillOpacity: 0.02,        //        opacidad de relleno
+            });
+
+          municipios.addTo(map)   //
 
         var marker = L.marker([37.38, -5.97]).addTo(map);
 
