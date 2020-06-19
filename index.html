@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Anacasjur</title>
-
-    <!-- Importamos los estilos que necesitamos -->
     <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -16,14 +14,42 @@
     <link href="css/animate.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
       </head>
       <body id="top">
         <header id="home">
+          <nav>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+                  <nav class="pull">
+                    <ul class="top-nav">
+                      <li><a href="#intro">Introducción <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#features">Características <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#responsive">Diseño responsable <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#portfolio">Portfolio <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#team">Equipo <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                      <li><a href="#contact">Contacto <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </nav>
           <section class="hero" id="hero">
             <div class="container">
               <div class="row">
+                <div class="col-md-12 text-right navicon">
+                  <a id="nav-toggle" class="nav_slide_button" href="#"><span></span></a>
+                </div>
+              </div>
+              <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center inner">
-                  <!-- Añadimos el título y subtítulo -->
                   <h1 class="animated fadeInDown">ANA<span>CASTILLO</span></h1>
                   <p class="animated fadeInUp delay-6s">Geografía, historia y lo que se <em>encarte</em></p>
                 </div>
@@ -31,7 +57,6 @@
             </div>
           </section>
         </header>
-        <!-- Con la siguiente clase hacemos aparecer un texto de izquierda a derecha -->
         <section class="intro text-center section-padding" id="intro">
           <div class="container">
             <div class="row">
@@ -42,7 +67,6 @@
             </div>
           </div>
         </section>
-        <!-- Análogo al anterior pero utilizando más clases, como la fuente fontawesome para los iconos -->
         <section class="features text-center section-padding" id="features">
           <div class="container">
             <div class="row">
@@ -76,7 +100,6 @@
             </div>
           </div>
         </section>
-        <!-- En esta sección utilizamos ciertas clases para mostrar imagen y texto en columnas -->
         <section class="text-center" id="responsive">
           <div class="container-fluid nopadding responsive-services">
             <div class="wrapper">
@@ -85,18 +108,19 @@
                   <div class="wp3"></div>
                 </div>
                 <div class="fluid-white"></div>
-              </div>z
+              </div>
+              <div class="fluid-white"></div>
             </div>
             <div class="container designs">
               <div class="row">
                 <div class="col-md-5 col-md-offset-7">
-                  <!-- Con la siguiente clase creamos un deslizador para la columna de texto (no se integra con todos los navegadores) -->
                   <div id="servicesSlider">
                     <ul class="slides">
                       <li>
                         <h1 class="arrow">Habilidades</h1>
                         <p> Alto manejo de los Sistemas de Información Geográfica de ArcGis, Q-Gis y el softawere estadístico SPSS. Conocimiento medio sobre el software de procesamiento de imágenes Satélites Erdas, SNAP y Fusion.</p>
                         <p> Nociones intermedias de lenguaje de programacón Pytohn, R, SQL.</p>
+                        
                       </li>
                       <li>
                         <h1 class="arrow">Aptitudes</h1></p>
@@ -106,6 +130,7 @@
                         <p> + Gestión de equipos</p>
                         <p> + Compañerismo</p>
                         <p> + Liderazgo</p>
+                        
                       </li>
                     </ul>
                   </div>
@@ -114,25 +139,22 @@
             </div>
           </div>
         </section>
-        <!-- Con la siguiente clase tenemos una perspectiva de la imagen de fondo a medida que bajamos por el navegador -->
         <section class="swag text-center">
           <div class="container">
             <div class="row">
-              <!-- Además añadimos algo de texto por encima -->
               <div class="col-md-8 col-md-offset-2">
                 <h1>El que conoce el arte de vivr consigo mismo<span> ignora el aburrimiento </span></h1>
+                <a href="#portfolio" class="down-arrow-btn"><i class="fa fa-chevron-down"></i></a>
               </div>
             </div>
           </div>
         </section>
-        <!-- En esta sección creamos tres columnas para montar imagen y texto -->
         <section class="portfolio text-center section-padding" id="portfolio">
           <div class="container">
             <div class="row">
               <div id="portfolioSlider">
                 <ul class="slides">
                   <li>
-                    <!-- Las imágenes tiene un pequeño efecto de delizamiento al pasar el cursor por encima -->
                     <div class="col-md-4 wp4">
                       <div class="overlay-effect effects clearfix">
                         <div class="img">
@@ -143,7 +165,6 @@
                           </div>
                         </div>
                       </div>
-                       <!-- Añadimos título y breve comentario-->
                       <h2>Artes Marciales</h2>
                       <p>Desde pequeña me ha atraído el deporte de contacto. No obstante, no ha sido hasta que entré en la Universidad cuando empecé a prácticarlo de forma más asidua. Mis pasiones son el Muay Thai y el Kick Boxing.</p>
                       </div>
@@ -179,7 +200,6 @@
             </div>
           </div>
         </section>
-        <!-- Creamos un botón sencillo para direccionar el repositorio de github -->
         <div class="ignite-cta text-center">
           <div class="container">
             <div class="row">
@@ -189,18 +209,15 @@
             </div>
           </div>
         </div>
-        <!-- En esta sección utilizamos un iframe para enlazar un vídeo de YouTube -->
         <section class="subscribe text-center">
           <div class="container">
-            <h1><span>Mi canción favorita</span></h1>
+            <h1><span>Mi canción favorita <3</span></h1>
             <form action="#">
-              <!-- En este iframe pondremos medidas responsive para que se vea bien en movil y ordenador -->
-              <iframe style="width: 70%; height: 35vw;" src="https://www.youtube.com/embed/EYyarcp5LtU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/EYyarcp5LtU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </form>
           </div>
         </section>
         <section class="dark-bg text-center section-padding contact-wrap" id="contact">
-          <!-- Añadimos un botón para subir al top de la web -->
           <a href="#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
           <div class="container">
             <div class="row">
@@ -208,30 +225,50 @@
                 <h1 class="arrow">Contacto</h1>
               </div>
             </div>
-            
-          <!-- Separamos en dos columnas para añadir un visor y una dirección de correo electrónico -->
             <div class="row contact-details">
               <div class="col-md-8">
                 <div class="light-box box-hover">
-                  <h2><i class="fa fa-map-marker"></i><span>Dirección</span></h2>
-                  <iframe src="leaflet/ejemplo_sidebar-v2.html" style="width: 90%; height: 35vw;"></iframe>
-                  <p>Calle de la Mentira, 66, 1E</p>
+                  <h2><i class="fa fa-map-marker"></i><span>Address</span></h2>
+                  <iframe src="leaflet/ejemplo_sidebar-v2.html" width="500" height="400"></iframe>
+                  <p>Level 6, 23 Pitt St, Sydney</p>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="light-box box-hover">
                   <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
-                  <p><a href="#">anacasjur@gmail.com</a></p>
+                  <p><a href="#">_anacasjur@gamil.cmo</a></p>
                 </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="social-buttons">
+                  <li><a href="No tengo" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                  <li><a href="No tengo" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="No tengo" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                </ul>
               </div>
             </div>
           </div>
         </section>
-        <!-- Dejamos un pie de página en blanco por estética -->
         <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="legals">
+                  <li><a href="#">Terms &amp; Conditions</a></li>
+                  <li><a href="#">Legals</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 credit">
+                <p>A free website template created exclusively for <a href="http://tympanus.net/codrops/"><em>Codrops</em></a></p>
+              </div>
+            </div>
+          </div>
         </footer>
-        <!-- Incluímos ciertos plugin necesarios para el funcionamiento de la página -->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/waypoints.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/scripts.js"></script>
